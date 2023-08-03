@@ -39,11 +39,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glew/cmake_install.cmake")
-endif()
-
-if(NOT CMAKE_INSTALL_LOCAL_ONLY)
-  # Include the install script for the subdirectory.
   include("/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw/cmake_install.cmake")
 endif()
 
