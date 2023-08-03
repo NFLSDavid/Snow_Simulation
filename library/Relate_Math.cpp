@@ -11,7 +11,7 @@ class Matrix3f;
 float Relate_Math::N_x(float x) {
     float abs_x = abs(x);
     if (abs_x < 1) {
-        return 0.5 * abs_x * abs_x * abs_x - x * x + 2 / 3;
+        return 0.5f * abs_x * abs_x * abs_x - x * x + 2 / 3;
     } else if (abs_x < 2) {
         return -1 / 6 * abs_x * abs_x * abs_x + x * x - 2 * abs_x + 4 / 3;
     } else {
@@ -22,9 +22,9 @@ float Relate_Math::N_x(float x) {
 float Relate_Math::N_x_derivative(float x) {
     float abs_x = abs(x);
     if (abs_x < 1) {
-        return 1.5 * abs_x * abs_x - 2 * x;
+        return 1.5f * abs_x * abs_x - 2 * x;
     } else if (abs_x < 2) {
-        return - 0.5 * x * x + 2 * abs_x - 2;
+        return - 0.5f * x * x + 2 * abs_x - 2;
     } else {
         return 0;
     }
@@ -43,11 +43,11 @@ glm::vec3 Relate_Math::weight_func_gradient(glm::vec3 pos, glm::vec3 grid_index,
     return glm::vec3 {N_i_x, N_i_y, N_i_z};
 }
 
-float Relate_Math::get_mu(float xi, float J_P) {
+float Relate_Math::get_mu(float xi, float J_P) const {
     return mu_0 * exp(xi * (1 - J_P));
 }
 
-float Relate_Math::get_lambda(float xi, float J_P) {
+float Relate_Math::get_lambda(float xi, float J_P) const {
     return lambda_0 * exp(xi * (1 - J_P));
 }
 
@@ -78,12 +78,25 @@ glm::mat3 Relate_Math::polar_R(glm::mat3 deform_gradient_E) {
     return eigen_to_glm(R_E);
 }
 
-glm::mat3 Relate_Math::get_sigma(float xi, Particle *particle) {
+glm::mat3 Relate_Math::get_sigma(float xi, Particle *particle) const {
     float J_P = determinant(particle->_deform_gradient_P);
     float J_E = determinant(particle->_deform_gradient_E);
     glm::mat3 R_E_p = polar_R(particle->_deform_gradient_E);
     return 2 * get_mu(xi, J_P) * (particle->_deform_gradient_E - R_E_p) * glm::transpose(particle->_deform_gradient_E) +
             get_lambda(xi, J_P) * (J_E - 1) * J_E * glm::mat3(1.0f);
+}
+
+void Relate_Math::get_svd(const glm::mat3 &matrix, glm::mat3 &U_p, glm::mat3 &Sigma_p, glm::mat3 &V_p, float theta_c, float theta_s) {
+    Eigen::Matrix3f eigen_matrix = glm_to_eigen(matrix);
+    Eigen::JacobiSVD<Eigen::MatrixXf> svd(eigen_matrix, Eigen::ComputeFullU | Eigen::ComputeFullV);
+    U_p = eigen_to_glm(svd.matrixU());
+    V_p = eigen_to_glm(svd.matrixV());
+    Eigen::Vector3f Sigma_p_hat_vec_eigen = svd.singularValues();
+    glm::vec3 Sigma_p_hat_vec = glm::vec3 {Sigma_p_hat_vec_eigen(0), Sigma_p_hat_vec_eigen(1), Sigma_p_hat_vec_eigen(2)};
+    glm::vec3 Sigma_p_vec = glm::clamp(Sigma_p_hat_vec, 1 - theta_c, 1 + theta_s);
+    Sigma_p = glm::mat3(Sigma_p_vec[0], 0.0, 0.0,
+                        0.0, Sigma_p_vec[1], 0.0,
+                        0.0, 0.0, Sigma_p_vec[2]);
 }
 
 

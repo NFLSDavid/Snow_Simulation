@@ -19,15 +19,16 @@ public:
     Relate_Math();
     static float N_x(float x);
     static float N_x_derivative(float x);
-    float weight_func(glm::vec3 pos, glm::vec3 grid_index, float spacing);
-    glm::vec3 weight_func_gradient(glm::vec3 pos, glm::vec3 grid_index, float spacing);
+    static float weight_func(glm::vec3 pos, glm::vec3 grid_index, float spacing);
+    static glm::vec3 weight_func_gradient(glm::vec3 pos, glm::vec3 grid_index, float spacing);
 
-    float get_mu(float xi, float J_P);
-    float get_lambda(float xi, float J_P);
-    glm::mat3 eigen_to_glm(const Eigen::Matrix3f& eigen_mat);
-    Eigen::Matrix3f glm_to_eigen(const glm::mat3& glm_mat);
-    glm::mat3 polar_R(glm::mat3);
-    glm::mat3 get_sigma(float xi, Particle* particle);
+    float get_mu(float xi, float J_P) const;
+    float get_lambda(float xi, float J_P) const;
+    static glm::mat3 eigen_to_glm(const Eigen::Matrix3f& eigen_mat);
+    static Eigen::Matrix3f glm_to_eigen(const glm::mat3& glm_mat);
+    static glm::mat3 polar_R(glm::mat3);
+    glm::mat3 get_sigma(float xi, Particle* particle) const;
+    static void get_svd(const glm::mat3& matrix, glm::mat3& U_p, glm::mat3& Sigma_p, glm::mat3& V_p, float theta_c, float theta_s);
 };
 
 

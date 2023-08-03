@@ -10,9 +10,11 @@
 #include "include/Relate_Math.h"
 #include <cmath>
 
+const float alpha = 0.95f;
 struct Node {
     glm::vec3 _pos;
     glm::vec3 _velocity;
+    glm::vec3 _updated_velocity;
     glm::vec3 _force;
     float _mass = 0;
     std::vector<Particle *> _particles;
@@ -31,6 +33,9 @@ public:
     void set_mass_and_velocities();
     void volume_init();
     void set_force(float xi);
+    void update_velocities(float delta_t, glm::vec3 gravity);
+    void update_deform_gradient(float theta_c, float theta_s, float delta_t);
+    void update_flip_and_pic();
 private:
     std::pair<int, int> get_bound(float x, int y) const;
 };
