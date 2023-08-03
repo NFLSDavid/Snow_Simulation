@@ -1,0 +1,31 @@
+# Ignore compiled binaries
+*.exe
+*.out
+*.o
+*.a
+
+# Ignore build directories
+build/
+bin/
+Debug/
+Release/
+
+# Ignore IDE-specific files
+.vs/
+.idea/
+*.xcodeproj/
+*.workspace/
+
+# Ignore dependency directories
+CMakeFiles/
+CMakeLists.txt.user
+conanbuildinfo.cmake
+
+# Ignore sensitive information
+config.ini
+secrets.txt
+
+# Ignore system-specific or editor backup files
+.DS_Store
+Thumbs.db
+*~
