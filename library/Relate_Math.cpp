@@ -3,24 +3,24 @@
 //
 
 #include "include/Relate_Math.h"
-
-class Matrix3f;
-
-class Matrix3f;
+#include <iostream>
 
 float Relate_Math::N_x(float x) {
-    float abs_x = abs(x);
+    float abs_x = fabs(x);
     if (abs_x < 1) {
-        return 0.5f * abs_x * abs_x * abs_x - x * x + 2 / 3;
+        float ans = 0.5f * abs_x * abs_x * abs_x - x * x + 2.f / 3.f;
+        // std::cerr << x << " " << (2 / 3) - x * x << " " << ans << std::endl;
+        return ans;
+        //return 0.5f * abs_x * abs_x * abs_x - x * x + 2 / 3;
     } else if (abs_x < 2) {
-        return -1 / 6 * abs_x * abs_x * abs_x + x * x - 2 * abs_x + 4 / 3;
+        return -1.f / 6.f * abs_x * abs_x * abs_x + x * x - 2.f * abs_x + 4.f / 3.f;
     } else {
-        return 0;
+         return 0;
     }
 }
 
 float Relate_Math::N_x_derivative(float x) {
-    float abs_x = abs(x);
+    float abs_x = fabs(x);
     if (abs_x < 1) {
         return 1.5f * abs_x * abs_x - 2 * x;
     } else if (abs_x < 2) {
@@ -31,8 +31,20 @@ float Relate_Math::N_x_derivative(float x) {
 }
 
 float Relate_Math::weight_func(glm::vec3 pos, glm::vec3 grid_index, float spacing) {
-    glm::vec3 scaled = (pos - spacing * grid_index) / spacing;
-    return N_x(scaled.x) * N_x(scaled.y) * N_x(scaled.z);
+    glm::vec3 scaled = pos / spacing - grid_index;
+    float sx = N_x(scaled.x);
+    float sy = N_x(scaled.y);
+    float sz = N_x(scaled.z);
+    float ans = sx * sy * sz;
+    if (ans < 0) {
+        // std::cerr << sx << ' ' << sy << ' ' << sz << ' ' << ans << std::endl;
+        // std::cerr << scaled.x << ' ' << scaled.y << ' ' << scaled.z << ' ' << std::endl;
+        // std::cerr << sx << ' ' << sy << ' ' << sz << ' ' << std::endl;
+        // std::cerr << std::endl;
+    }
+
+    return ans;
+    //return N_x(scaled.x) * N_x(scaled.y) * N_x(scaled.z);
 }
 
 glm::vec3 Relate_Math::weight_func_gradient(glm::vec3 pos, glm::vec3 grid_index, float spacing) {
@@ -78,7 +90,7 @@ glm::mat3 Relate_Math::polar_R(glm::mat3 deform_gradient_E) {
     return eigen_to_glm(R_E);
 }
 
-glm::mat3 Relate_Math::get_sigma(float xi, Particle *particle) const {
+glm::mat3 Relate_Math::get_sigma(float xi, const std::shared_ptr<Particle>& particle) const {
     float J_P = determinant(particle->_deform_gradient_P);
     float J_E = determinant(particle->_deform_gradient_E);
     glm::mat3 R_E_p = polar_R(particle->_deform_gradient_E);
@@ -98,6 +110,5 @@ void Relate_Math::get_svd(const glm::mat3 &matrix, glm::mat3 &U_p, glm::mat3 &Si
                         0.0, Sigma_p_vec[1], 0.0,
                         0.0, 0.0, Sigma_p_vec[2]);
 }
-
 
 Relate_Math::Relate_Math() = default;

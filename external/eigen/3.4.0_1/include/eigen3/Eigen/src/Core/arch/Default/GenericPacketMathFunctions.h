@@ -700,7 +700,7 @@ Packet psincos_float(const Packet& _x)
   }
 
   // Compute the sign to apply to the polynomial.
-  // sin: sign = second_bit(y_int) xor signbit(_x)
+  // sin: sign = second_bit(y_int) xor signbit(_x_coord)
   // cos: sign = second_bit(y_int+1)
   Packet sign_bit = ComputeSine ? pxor(_x, preinterpret<Packet>(plogical_shift_left<30>(y_int)))
                                 : preinterpret<Packet>(plogical_shift_left<30>(padd(y_int,csti_1)));

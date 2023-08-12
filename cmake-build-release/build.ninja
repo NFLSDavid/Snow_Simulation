@@ -12,7 +12,7 @@
 
 # =============================================================================
 # Project: Snow_Simulation
-# Configurations: Debug
+# Configurations: Release
 # =============================================================================
 
 #############################################
@@ -24,7 +24,7 @@ ninja_required_version = 1.5
 #############################################
 # Set configuration variable for custom commands.
 
-CONFIGURATION = Debug
+CONFIGURATION = Release
 # =============================================================================
 # Include auxiliary files.
 
@@ -39,7 +39,7 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/cmake-build-debug/
+cmake_ninja_workdir = /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/cmake-build-release/
 # =============================================================================
 # Object build statements for STATIC_LIBRARY target glad
 
@@ -49,9 +49,9 @@ cmake_ninja_workdir = /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Sim
 
 build cmake_object_order_depends_target_glad: phony || CMakeFiles/glad.dir
 
-build CMakeFiles/glad.dir/external/glad/glad.c.o: C_COMPILER__glad_unscanned_Debug /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glad/glad.c || cmake_object_order_depends_target_glad
+build CMakeFiles/glad.dir/external/glad/glad.c.o: C_COMPILER__glad_unscanned_Release /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glad/glad.c || cmake_object_order_depends_target_glad
   DEP_FILE = CMakeFiles/glad.dir/external/glad/glad.c.o.d
-  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
+  FLAGS = -O3 -DNDEBUG -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
   INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I/include -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glm"
   OBJECT_DIR = CMakeFiles/glad.dir
   OBJECT_FILE_DIR = CMakeFiles/glad.dir/external/glad
@@ -64,9 +64,9 @@ build CMakeFiles/glad.dir/external/glad/glad.c.o: C_COMPILER__glad_unscanned_Deb
 #############################################
 # Link the static library libglad.a
 
-build libglad.a: C_STATIC_LIBRARY_LINKER__glad_Debug CMakeFiles/glad.dir/external/glad/glad.c.o
+build libglad.a: C_STATIC_LIBRARY_LINKER__glad_Release CMakeFiles/glad.dir/external/glad/glad.c.o
   ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk
-  LANGUAGE_COMPILE_FLAGS = -g
+  LANGUAGE_COMPILE_FLAGS = -O3 -DNDEBUG
   OBJECT_DIR = CMakeFiles/glad.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -82,37 +82,37 @@ build libglad.a: C_STATIC_LIBRARY_LINKER__glad_Debug CMakeFiles/glad.dir/externa
 
 build cmake_object_order_depends_target_Snow_Simulation: phony || cmake_object_order_depends_target_glad cmake_object_order_depends_target_glfw
 
-build CMakeFiles/Snow_Simulation.dir/main.cpp.o: CXX_COMPILER__Snow_Simulation_unscanned_Debug /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/main.cpp || cmake_object_order_depends_target_Snow_Simulation
+build CMakeFiles/Snow_Simulation.dir/main.cpp.o: CXX_COMPILER__Snow_Simulation_unscanned_Release /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/main.cpp || cmake_object_order_depends_target_Snow_Simulation
   DEP_FILE = CMakeFiles/Snow_Simulation.dir/main.cpp.o.d
-  FLAGS = -g -std=gnu++14 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
+  FLAGS = -O3 -DNDEBUG -std=gnu++14 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
   INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glad/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glm" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I/include -isystem /usr/local/include/eigen3
   OBJECT_DIR = CMakeFiles/Snow_Simulation.dir
   OBJECT_FILE_DIR = CMakeFiles/Snow_Simulation.dir
 
-build CMakeFiles/Snow_Simulation.dir/library/Grid.cpp.o: CXX_COMPILER__Snow_Simulation_unscanned_Debug /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/library/Grid.cpp || cmake_object_order_depends_target_Snow_Simulation
+build CMakeFiles/Snow_Simulation.dir/library/Grid.cpp.o: CXX_COMPILER__Snow_Simulation_unscanned_Release /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/library/Grid.cpp || cmake_object_order_depends_target_Snow_Simulation
   DEP_FILE = CMakeFiles/Snow_Simulation.dir/library/Grid.cpp.o.d
-  FLAGS = -g -std=gnu++14 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
+  FLAGS = -O3 -DNDEBUG -std=gnu++14 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
   INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glad/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glm" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I/include -isystem /usr/local/include/eigen3
   OBJECT_DIR = CMakeFiles/Snow_Simulation.dir
   OBJECT_FILE_DIR = CMakeFiles/Snow_Simulation.dir/library
 
-build CMakeFiles/Snow_Simulation.dir/library/Particle.cpp.o: CXX_COMPILER__Snow_Simulation_unscanned_Debug /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/library/Particle.cpp || cmake_object_order_depends_target_Snow_Simulation
+build CMakeFiles/Snow_Simulation.dir/library/Particle.cpp.o: CXX_COMPILER__Snow_Simulation_unscanned_Release /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/library/Particle.cpp || cmake_object_order_depends_target_Snow_Simulation
   DEP_FILE = CMakeFiles/Snow_Simulation.dir/library/Particle.cpp.o.d
-  FLAGS = -g -std=gnu++14 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
+  FLAGS = -O3 -DNDEBUG -std=gnu++14 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
   INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glad/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glm" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I/include -isystem /usr/local/include/eigen3
   OBJECT_DIR = CMakeFiles/Snow_Simulation.dir
   OBJECT_FILE_DIR = CMakeFiles/Snow_Simulation.dir/library
 
-build CMakeFiles/Snow_Simulation.dir/library/plane.cpp.o: CXX_COMPILER__Snow_Simulation_unscanned_Debug /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/library/plane.cpp || cmake_object_order_depends_target_Snow_Simulation
+build CMakeFiles/Snow_Simulation.dir/library/plane.cpp.o: CXX_COMPILER__Snow_Simulation_unscanned_Release /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/library/plane.cpp || cmake_object_order_depends_target_Snow_Simulation
   DEP_FILE = CMakeFiles/Snow_Simulation.dir/library/plane.cpp.o.d
-  FLAGS = -g -std=gnu++14 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
+  FLAGS = -O3 -DNDEBUG -std=gnu++14 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
   INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glad/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glm" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I/include -isystem /usr/local/include/eigen3
   OBJECT_DIR = CMakeFiles/Snow_Simulation.dir
   OBJECT_FILE_DIR = CMakeFiles/Snow_Simulation.dir/library
 
-build CMakeFiles/Snow_Simulation.dir/library/Relate_Math.cpp.o: CXX_COMPILER__Snow_Simulation_unscanned_Debug /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/library/Relate_Math.cpp || cmake_object_order_depends_target_Snow_Simulation
+build CMakeFiles/Snow_Simulation.dir/library/Relate_Math.cpp.o: CXX_COMPILER__Snow_Simulation_unscanned_Release /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/library/Relate_Math.cpp || cmake_object_order_depends_target_Snow_Simulation
   DEP_FILE = CMakeFiles/Snow_Simulation.dir/library/Relate_Math.cpp.o.d
-  FLAGS = -g -std=gnu++14 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
+  FLAGS = -O3 -DNDEBUG -std=gnu++14 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fcolor-diagnostics
   INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glad/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glm" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I/include -isystem /usr/local/include/eigen3
   OBJECT_DIR = CMakeFiles/Snow_Simulation.dir
   OBJECT_FILE_DIR = CMakeFiles/Snow_Simulation.dir/library
@@ -125,8 +125,8 @@ build CMakeFiles/Snow_Simulation.dir/library/Relate_Math.cpp.o: CXX_COMPILER__Sn
 #############################################
 # Link the executable Snow_Simulation
 
-build Snow_Simulation: CXX_EXECUTABLE_LINKER__Snow_Simulation_Debug CMakeFiles/Snow_Simulation.dir/main.cpp.o CMakeFiles/Snow_Simulation.dir/library/Grid.cpp.o CMakeFiles/Snow_Simulation.dir/library/Particle.cpp.o CMakeFiles/Snow_Simulation.dir/library/plane.cpp.o CMakeFiles/Snow_Simulation.dir/library/Relate_Math.cpp.o | external/glfw/src/libglfw3.a libglad.a || external/glfw/src/libglfw3.a libglad.a
-  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk
+build Snow_Simulation: CXX_EXECUTABLE_LINKER__Snow_Simulation_Release CMakeFiles/Snow_Simulation.dir/main.cpp.o CMakeFiles/Snow_Simulation.dir/library/Grid.cpp.o CMakeFiles/Snow_Simulation.dir/library/Particle.cpp.o CMakeFiles/Snow_Simulation.dir/library/plane.cpp.o CMakeFiles/Snow_Simulation.dir/library/Relate_Math.cpp.o | external/glfw/src/libglfw3.a libglad.a || external/glfw/src/libglfw3.a libglad.a
+  FLAGS = -O3 -DNDEBUG -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk
   LINK_LIBRARIES = -Wl,-rpath,"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include"  external/glfw/src/libglfw3.a  libglad.a  -framework Cocoa  -framework IOKit  -framework CoreFoundation
   LINK_PATH = -L"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include"
   OBJECT_DIR = CMakeFiles/Snow_Simulation.dir
@@ -140,7 +140,7 @@ build Snow_Simulation: CXX_EXECUTABLE_LINKER__Snow_Simulation_Debug CMakeFiles/S
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -151,7 +151,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" --regenerate-during-build -S"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation" -B"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug"
+  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" --regenerate-during-build -S"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation" -B"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -169,7 +169,7 @@ build list_install_components: phony
 # Utility command for install
 
 build CMakeFiles/install.util: CUSTOM_COMMAND all
-  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" -P cmake_install.cmake
+  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -181,7 +181,7 @@ build install: phony CMakeFiles/install.util
 # Utility command for install/local
 
 build CMakeFiles/install/local.util: CUSTOM_COMMAND all
-  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -193,7 +193,7 @@ build install/local: phony CMakeFiles/install/local.util
 # Utility command for install/strip
 
 build CMakeFiles/install/strip.util: CUSTOM_COMMAND all
-  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -216,7 +216,7 @@ build external/glfw/uninstall: phony external/glfw/CMakeFiles/uninstall
 # Utility command for edit_cache
 
 build external/glfw/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -227,7 +227,7 @@ build external/glfw/edit_cache: phony external/glfw/CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build external/glfw/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" --regenerate-during-build -S"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation" -B"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug"
+  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" --regenerate-during-build -S"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation" -B"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -245,7 +245,7 @@ build external/glfw/list_install_components: phony
 # Utility command for install
 
 build external/glfw/CMakeFiles/install.util: CUSTOM_COMMAND external/glfw/all
-  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" -P cmake_install.cmake
+  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -257,7 +257,7 @@ build external/glfw/install: phony external/glfw/CMakeFiles/install.util
 # Utility command for install/local
 
 build external/glfw/CMakeFiles/install/local.util: CUSTOM_COMMAND external/glfw/all
-  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -269,7 +269,7 @@ build external/glfw/install/local: phony external/glfw/CMakeFiles/install/local.
 # Utility command for install/strip
 
 build external/glfw/CMakeFiles/install/strip.util: CUSTOM_COMMAND external/glfw/all
-  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -281,7 +281,7 @@ build external/glfw/install/strip: phony external/glfw/CMakeFiles/install/strip.
 # Custom command for external/glfw/CMakeFiles/uninstall
 
 build external/glfw/CMakeFiles/uninstall | ${cmake_ninja_workdir}external/glfw/CMakeFiles/uninstall: CUSTOM_COMMAND
-  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" -P /Users/fangwenyu/Desktop/loo/Spring\ 2023/CS\ 488/Snow_Simulation/cmake-build-debug/external/glfw/cmake_uninstall.cmake
+  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" -P /Users/fangwenyu/Desktop/loo/Spring\ 2023/CS\ 488/Snow_Simulation/cmake-build-release/external/glfw/cmake_uninstall.cmake
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
@@ -297,171 +297,171 @@ build external/glfw/CMakeFiles/uninstall | ${cmake_ninja_workdir}external/glfw/C
 
 build cmake_object_order_depends_target_glfw: phony || external/glfw/src/CMakeFiles/glfw.dir
 
-build external/glfw/src/CMakeFiles/glfw.dir/context.c.o: C_COMPILER__glfw_unscanned_Debug /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/context.c || cmake_object_order_depends_target_glfw
+build external/glfw/src/CMakeFiles/glfw.dir/context.c.o: C_COMPILER__glfw_unscanned_Release /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/context.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_GLFW_COCOA
   DEP_FILE = external/glfw/src/CMakeFiles/glfw.dir/context.c.o.d
-  FLAGS = -g -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
-  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw/src"
+  FLAGS = -O3 -DNDEBUG -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw/src"
   OBJECT_DIR = external/glfw/src/CMakeFiles/glfw.dir
   OBJECT_FILE_DIR = external/glfw/src/CMakeFiles/glfw.dir
 
-build external/glfw/src/CMakeFiles/glfw.dir/init.c.o: C_COMPILER__glfw_unscanned_Debug /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/init.c || cmake_object_order_depends_target_glfw
+build external/glfw/src/CMakeFiles/glfw.dir/init.c.o: C_COMPILER__glfw_unscanned_Release /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/init.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_GLFW_COCOA
   DEP_FILE = external/glfw/src/CMakeFiles/glfw.dir/init.c.o.d
-  FLAGS = -g -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
-  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw/src"
+  FLAGS = -O3 -DNDEBUG -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw/src"
   OBJECT_DIR = external/glfw/src/CMakeFiles/glfw.dir
   OBJECT_FILE_DIR = external/glfw/src/CMakeFiles/glfw.dir
 
-build external/glfw/src/CMakeFiles/glfw.dir/input.c.o: C_COMPILER__glfw_unscanned_Debug /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/input.c || cmake_object_order_depends_target_glfw
+build external/glfw/src/CMakeFiles/glfw.dir/input.c.o: C_COMPILER__glfw_unscanned_Release /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/input.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_GLFW_COCOA
   DEP_FILE = external/glfw/src/CMakeFiles/glfw.dir/input.c.o.d
-  FLAGS = -g -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
-  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw/src"
+  FLAGS = -O3 -DNDEBUG -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw/src"
   OBJECT_DIR = external/glfw/src/CMakeFiles/glfw.dir
   OBJECT_FILE_DIR = external/glfw/src/CMakeFiles/glfw.dir
 
-build external/glfw/src/CMakeFiles/glfw.dir/monitor.c.o: C_COMPILER__glfw_unscanned_Debug /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/monitor.c || cmake_object_order_depends_target_glfw
+build external/glfw/src/CMakeFiles/glfw.dir/monitor.c.o: C_COMPILER__glfw_unscanned_Release /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/monitor.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_GLFW_COCOA
   DEP_FILE = external/glfw/src/CMakeFiles/glfw.dir/monitor.c.o.d
-  FLAGS = -g -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
-  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw/src"
+  FLAGS = -O3 -DNDEBUG -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw/src"
   OBJECT_DIR = external/glfw/src/CMakeFiles/glfw.dir
   OBJECT_FILE_DIR = external/glfw/src/CMakeFiles/glfw.dir
 
-build external/glfw/src/CMakeFiles/glfw.dir/platform.c.o: C_COMPILER__glfw_unscanned_Debug /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/platform.c || cmake_object_order_depends_target_glfw
+build external/glfw/src/CMakeFiles/glfw.dir/platform.c.o: C_COMPILER__glfw_unscanned_Release /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/platform.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_GLFW_COCOA
   DEP_FILE = external/glfw/src/CMakeFiles/glfw.dir/platform.c.o.d
-  FLAGS = -g -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
-  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw/src"
+  FLAGS = -O3 -DNDEBUG -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw/src"
   OBJECT_DIR = external/glfw/src/CMakeFiles/glfw.dir
   OBJECT_FILE_DIR = external/glfw/src/CMakeFiles/glfw.dir
 
-build external/glfw/src/CMakeFiles/glfw.dir/vulkan.c.o: C_COMPILER__glfw_unscanned_Debug /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/vulkan.c || cmake_object_order_depends_target_glfw
+build external/glfw/src/CMakeFiles/glfw.dir/vulkan.c.o: C_COMPILER__glfw_unscanned_Release /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/vulkan.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_GLFW_COCOA
   DEP_FILE = external/glfw/src/CMakeFiles/glfw.dir/vulkan.c.o.d
-  FLAGS = -g -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
-  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw/src"
+  FLAGS = -O3 -DNDEBUG -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw/src"
   OBJECT_DIR = external/glfw/src/CMakeFiles/glfw.dir
   OBJECT_FILE_DIR = external/glfw/src/CMakeFiles/glfw.dir
 
-build external/glfw/src/CMakeFiles/glfw.dir/window.c.o: C_COMPILER__glfw_unscanned_Debug /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/window.c || cmake_object_order_depends_target_glfw
+build external/glfw/src/CMakeFiles/glfw.dir/window.c.o: C_COMPILER__glfw_unscanned_Release /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/window.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_GLFW_COCOA
   DEP_FILE = external/glfw/src/CMakeFiles/glfw.dir/window.c.o.d
-  FLAGS = -g -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
-  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw/src"
+  FLAGS = -O3 -DNDEBUG -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw/src"
   OBJECT_DIR = external/glfw/src/CMakeFiles/glfw.dir
   OBJECT_FILE_DIR = external/glfw/src/CMakeFiles/glfw.dir
 
-build external/glfw/src/CMakeFiles/glfw.dir/egl_context.c.o: C_COMPILER__glfw_unscanned_Debug /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/egl_context.c || cmake_object_order_depends_target_glfw
+build external/glfw/src/CMakeFiles/glfw.dir/egl_context.c.o: C_COMPILER__glfw_unscanned_Release /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/egl_context.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_GLFW_COCOA
   DEP_FILE = external/glfw/src/CMakeFiles/glfw.dir/egl_context.c.o.d
-  FLAGS = -g -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
-  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw/src"
+  FLAGS = -O3 -DNDEBUG -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw/src"
   OBJECT_DIR = external/glfw/src/CMakeFiles/glfw.dir
   OBJECT_FILE_DIR = external/glfw/src/CMakeFiles/glfw.dir
 
-build external/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.o: C_COMPILER__glfw_unscanned_Debug /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/osmesa_context.c || cmake_object_order_depends_target_glfw
+build external/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.o: C_COMPILER__glfw_unscanned_Release /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/osmesa_context.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_GLFW_COCOA
   DEP_FILE = external/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.o.d
-  FLAGS = -g -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
-  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw/src"
+  FLAGS = -O3 -DNDEBUG -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw/src"
   OBJECT_DIR = external/glfw/src/CMakeFiles/glfw.dir
   OBJECT_FILE_DIR = external/glfw/src/CMakeFiles/glfw.dir
 
-build external/glfw/src/CMakeFiles/glfw.dir/null_init.c.o: C_COMPILER__glfw_unscanned_Debug /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/null_init.c || cmake_object_order_depends_target_glfw
+build external/glfw/src/CMakeFiles/glfw.dir/null_init.c.o: C_COMPILER__glfw_unscanned_Release /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/null_init.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_GLFW_COCOA
   DEP_FILE = external/glfw/src/CMakeFiles/glfw.dir/null_init.c.o.d
-  FLAGS = -g -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
-  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw/src"
+  FLAGS = -O3 -DNDEBUG -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw/src"
   OBJECT_DIR = external/glfw/src/CMakeFiles/glfw.dir
   OBJECT_FILE_DIR = external/glfw/src/CMakeFiles/glfw.dir
 
-build external/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.o: C_COMPILER__glfw_unscanned_Debug /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/null_monitor.c || cmake_object_order_depends_target_glfw
+build external/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.o: C_COMPILER__glfw_unscanned_Release /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/null_monitor.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_GLFW_COCOA
   DEP_FILE = external/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.o.d
-  FLAGS = -g -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
-  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw/src"
+  FLAGS = -O3 -DNDEBUG -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw/src"
   OBJECT_DIR = external/glfw/src/CMakeFiles/glfw.dir
   OBJECT_FILE_DIR = external/glfw/src/CMakeFiles/glfw.dir
 
-build external/glfw/src/CMakeFiles/glfw.dir/null_window.c.o: C_COMPILER__glfw_unscanned_Debug /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/null_window.c || cmake_object_order_depends_target_glfw
+build external/glfw/src/CMakeFiles/glfw.dir/null_window.c.o: C_COMPILER__glfw_unscanned_Release /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/null_window.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_GLFW_COCOA
   DEP_FILE = external/glfw/src/CMakeFiles/glfw.dir/null_window.c.o.d
-  FLAGS = -g -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
-  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw/src"
+  FLAGS = -O3 -DNDEBUG -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw/src"
   OBJECT_DIR = external/glfw/src/CMakeFiles/glfw.dir
   OBJECT_FILE_DIR = external/glfw/src/CMakeFiles/glfw.dir
 
-build external/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.o: C_COMPILER__glfw_unscanned_Debug /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/null_joystick.c || cmake_object_order_depends_target_glfw
+build external/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.o: C_COMPILER__glfw_unscanned_Release /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/null_joystick.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_GLFW_COCOA
   DEP_FILE = external/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.o.d
-  FLAGS = -g -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
-  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw/src"
+  FLAGS = -O3 -DNDEBUG -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw/src"
   OBJECT_DIR = external/glfw/src/CMakeFiles/glfw.dir
   OBJECT_FILE_DIR = external/glfw/src/CMakeFiles/glfw.dir
 
-build external/glfw/src/CMakeFiles/glfw.dir/cocoa_time.c.o: C_COMPILER__glfw_unscanned_Debug /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/cocoa_time.c || cmake_object_order_depends_target_glfw
+build external/glfw/src/CMakeFiles/glfw.dir/cocoa_time.c.o: C_COMPILER__glfw_unscanned_Release /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/cocoa_time.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_GLFW_COCOA
   DEP_FILE = external/glfw/src/CMakeFiles/glfw.dir/cocoa_time.c.o.d
-  FLAGS = -g -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
-  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw/src"
+  FLAGS = -O3 -DNDEBUG -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw/src"
   OBJECT_DIR = external/glfw/src/CMakeFiles/glfw.dir
   OBJECT_FILE_DIR = external/glfw/src/CMakeFiles/glfw.dir
 
-build external/glfw/src/CMakeFiles/glfw.dir/posix_module.c.o: C_COMPILER__glfw_unscanned_Debug /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/posix_module.c || cmake_object_order_depends_target_glfw
+build external/glfw/src/CMakeFiles/glfw.dir/posix_module.c.o: C_COMPILER__glfw_unscanned_Release /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/posix_module.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_GLFW_COCOA
   DEP_FILE = external/glfw/src/CMakeFiles/glfw.dir/posix_module.c.o.d
-  FLAGS = -g -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
-  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw/src"
+  FLAGS = -O3 -DNDEBUG -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw/src"
   OBJECT_DIR = external/glfw/src/CMakeFiles/glfw.dir
   OBJECT_FILE_DIR = external/glfw/src/CMakeFiles/glfw.dir
 
-build external/glfw/src/CMakeFiles/glfw.dir/posix_thread.c.o: C_COMPILER__glfw_unscanned_Debug /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/posix_thread.c || cmake_object_order_depends_target_glfw
+build external/glfw/src/CMakeFiles/glfw.dir/posix_thread.c.o: C_COMPILER__glfw_unscanned_Release /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/posix_thread.c || cmake_object_order_depends_target_glfw
   DEFINES = -D_GLFW_COCOA
   DEP_FILE = external/glfw/src/CMakeFiles/glfw.dir/posix_thread.c.o.d
-  FLAGS = -g -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
-  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw/src"
+  FLAGS = -O3 -DNDEBUG -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw/src"
   OBJECT_DIR = external/glfw/src/CMakeFiles/glfw.dir
   OBJECT_FILE_DIR = external/glfw/src/CMakeFiles/glfw.dir
 
-build external/glfw/src/CMakeFiles/glfw.dir/cocoa_init.m.o: C_COMPILER__glfw_unscanned_Debug /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/cocoa_init.m || cmake_object_order_depends_target_glfw
+build external/glfw/src/CMakeFiles/glfw.dir/cocoa_init.m.o: C_COMPILER__glfw_unscanned_Release /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/cocoa_init.m || cmake_object_order_depends_target_glfw
   DEFINES = -D_GLFW_COCOA
   DEP_FILE = external/glfw/src/CMakeFiles/glfw.dir/cocoa_init.m.o.d
-  FLAGS = -g -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
-  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw/src"
+  FLAGS = -O3 -DNDEBUG -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw/src"
   OBJECT_DIR = external/glfw/src/CMakeFiles/glfw.dir
   OBJECT_FILE_DIR = external/glfw/src/CMakeFiles/glfw.dir
 
-build external/glfw/src/CMakeFiles/glfw.dir/cocoa_joystick.m.o: C_COMPILER__glfw_unscanned_Debug /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/cocoa_joystick.m || cmake_object_order_depends_target_glfw
+build external/glfw/src/CMakeFiles/glfw.dir/cocoa_joystick.m.o: C_COMPILER__glfw_unscanned_Release /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/cocoa_joystick.m || cmake_object_order_depends_target_glfw
   DEFINES = -D_GLFW_COCOA
   DEP_FILE = external/glfw/src/CMakeFiles/glfw.dir/cocoa_joystick.m.o.d
-  FLAGS = -g -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
-  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw/src"
+  FLAGS = -O3 -DNDEBUG -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw/src"
   OBJECT_DIR = external/glfw/src/CMakeFiles/glfw.dir
   OBJECT_FILE_DIR = external/glfw/src/CMakeFiles/glfw.dir
 
-build external/glfw/src/CMakeFiles/glfw.dir/cocoa_monitor.m.o: C_COMPILER__glfw_unscanned_Debug /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/cocoa_monitor.m || cmake_object_order_depends_target_glfw
+build external/glfw/src/CMakeFiles/glfw.dir/cocoa_monitor.m.o: C_COMPILER__glfw_unscanned_Release /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/cocoa_monitor.m || cmake_object_order_depends_target_glfw
   DEFINES = -D_GLFW_COCOA
   DEP_FILE = external/glfw/src/CMakeFiles/glfw.dir/cocoa_monitor.m.o.d
-  FLAGS = -g -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
-  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw/src"
+  FLAGS = -O3 -DNDEBUG -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw/src"
   OBJECT_DIR = external/glfw/src/CMakeFiles/glfw.dir
   OBJECT_FILE_DIR = external/glfw/src/CMakeFiles/glfw.dir
 
-build external/glfw/src/CMakeFiles/glfw.dir/cocoa_window.m.o: C_COMPILER__glfw_unscanned_Debug /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/cocoa_window.m || cmake_object_order_depends_target_glfw
+build external/glfw/src/CMakeFiles/glfw.dir/cocoa_window.m.o: C_COMPILER__glfw_unscanned_Release /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/cocoa_window.m || cmake_object_order_depends_target_glfw
   DEFINES = -D_GLFW_COCOA
   DEP_FILE = external/glfw/src/CMakeFiles/glfw.dir/cocoa_window.m.o.d
-  FLAGS = -g -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
-  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw/src"
+  FLAGS = -O3 -DNDEBUG -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw/src"
   OBJECT_DIR = external/glfw/src/CMakeFiles/glfw.dir
   OBJECT_FILE_DIR = external/glfw/src/CMakeFiles/glfw.dir
 
-build external/glfw/src/CMakeFiles/glfw.dir/nsgl_context.m.o: C_COMPILER__glfw_unscanned_Debug /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/nsgl_context.m || cmake_object_order_depends_target_glfw
+build external/glfw/src/CMakeFiles/glfw.dir/nsgl_context.m.o: C_COMPILER__glfw_unscanned_Release /Users/fangwenyu/Desktop/loo/Spring$ 2023/CS$ 488/Snow_Simulation/external/glfw/src/nsgl_context.m || cmake_object_order_depends_target_glfw
   DEFINES = -D_GLFW_COCOA
   DEP_FILE = external/glfw/src/CMakeFiles/glfw.dir/nsgl_context.m.o.d
-  FLAGS = -g -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
-  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw/src"
+  FLAGS = -O3 -DNDEBUG -std=c99 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -fPIC -fcolor-diagnostics -Wall
+  INCLUDES = -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/." -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/include" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/external/glfw/src" -I"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw/src"
   OBJECT_DIR = external/glfw/src/CMakeFiles/glfw.dir
   OBJECT_FILE_DIR = external/glfw/src/CMakeFiles/glfw.dir
 
@@ -473,9 +473,9 @@ build external/glfw/src/CMakeFiles/glfw.dir/nsgl_context.m.o: C_COMPILER__glfw_u
 #############################################
 # Link the static library external/glfw/src/libglfw3.a
 
-build external/glfw/src/libglfw3.a: C_STATIC_LIBRARY_LINKER__glfw_Debug external/glfw/src/CMakeFiles/glfw.dir/context.c.o external/glfw/src/CMakeFiles/glfw.dir/init.c.o external/glfw/src/CMakeFiles/glfw.dir/input.c.o external/glfw/src/CMakeFiles/glfw.dir/monitor.c.o external/glfw/src/CMakeFiles/glfw.dir/platform.c.o external/glfw/src/CMakeFiles/glfw.dir/vulkan.c.o external/glfw/src/CMakeFiles/glfw.dir/window.c.o external/glfw/src/CMakeFiles/glfw.dir/egl_context.c.o external/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.o external/glfw/src/CMakeFiles/glfw.dir/null_init.c.o external/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.o external/glfw/src/CMakeFiles/glfw.dir/null_window.c.o external/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.o external/glfw/src/CMakeFiles/glfw.dir/cocoa_time.c.o external/glfw/src/CMakeFiles/glfw.dir/posix_module.c.o external/glfw/src/CMakeFiles/glfw.dir/posix_thread.c.o external/glfw/src/CMakeFiles/glfw.dir/cocoa_init.m.o external/glfw/src/CMakeFiles/glfw.dir/cocoa_joystick.m.o external/glfw/src/CMakeFiles/glfw.dir/cocoa_monitor.m.o external/glfw/src/CMakeFiles/glfw.dir/cocoa_window.m.o external/glfw/src/CMakeFiles/glfw.dir/nsgl_context.m.o
+build external/glfw/src/libglfw3.a: C_STATIC_LIBRARY_LINKER__glfw_Release external/glfw/src/CMakeFiles/glfw.dir/context.c.o external/glfw/src/CMakeFiles/glfw.dir/init.c.o external/glfw/src/CMakeFiles/glfw.dir/input.c.o external/glfw/src/CMakeFiles/glfw.dir/monitor.c.o external/glfw/src/CMakeFiles/glfw.dir/platform.c.o external/glfw/src/CMakeFiles/glfw.dir/vulkan.c.o external/glfw/src/CMakeFiles/glfw.dir/window.c.o external/glfw/src/CMakeFiles/glfw.dir/egl_context.c.o external/glfw/src/CMakeFiles/glfw.dir/osmesa_context.c.o external/glfw/src/CMakeFiles/glfw.dir/null_init.c.o external/glfw/src/CMakeFiles/glfw.dir/null_monitor.c.o external/glfw/src/CMakeFiles/glfw.dir/null_window.c.o external/glfw/src/CMakeFiles/glfw.dir/null_joystick.c.o external/glfw/src/CMakeFiles/glfw.dir/cocoa_time.c.o external/glfw/src/CMakeFiles/glfw.dir/posix_module.c.o external/glfw/src/CMakeFiles/glfw.dir/posix_thread.c.o external/glfw/src/CMakeFiles/glfw.dir/cocoa_init.m.o external/glfw/src/CMakeFiles/glfw.dir/cocoa_joystick.m.o external/glfw/src/CMakeFiles/glfw.dir/cocoa_monitor.m.o external/glfw/src/CMakeFiles/glfw.dir/cocoa_window.m.o external/glfw/src/CMakeFiles/glfw.dir/nsgl_context.m.o
   ARCH_FLAGS = -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk
-  LANGUAGE_COMPILE_FLAGS = -g
+  LANGUAGE_COMPILE_FLAGS = -O3 -DNDEBUG
   OBJECT_DIR = external/glfw/src/CMakeFiles/glfw.dir
   POST_BUILD = :
   PRE_LINK = :
@@ -493,7 +493,7 @@ build external/glfw/src/update_mappings: phony external/glfw/src/CMakeFiles/upda
 # Utility command for edit_cache
 
 build external/glfw/src/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw/src" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw/src" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -504,7 +504,7 @@ build external/glfw/src/edit_cache: phony external/glfw/src/CMakeFiles/edit_cach
 # Utility command for rebuild_cache
 
 build external/glfw/src/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw/src" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" --regenerate-during-build -S"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation" -B"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug"
+  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw/src" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" --regenerate-during-build -S"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation" -B"/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release"
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -522,7 +522,7 @@ build external/glfw/src/list_install_components: phony
 # Utility command for install
 
 build external/glfw/src/CMakeFiles/install.util: CUSTOM_COMMAND external/glfw/src/all
-  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw/src" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" -P cmake_install.cmake
+  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw/src" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" -P cmake_install.cmake
   DESC = Install the project...
   pool = console
   restat = 1
@@ -534,7 +534,7 @@ build external/glfw/src/install: phony external/glfw/src/CMakeFiles/install.util
 # Utility command for install/local
 
 build external/glfw/src/CMakeFiles/install/local.util: CUSTOM_COMMAND external/glfw/src/all
-  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw/src" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw/src" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
   DESC = Installing only the local directory...
   pool = console
   restat = 1
@@ -546,7 +546,7 @@ build external/glfw/src/install/local: phony external/glfw/src/CMakeFiles/instal
 # Utility command for install/strip
 
 build external/glfw/src/CMakeFiles/install/strip.util: CUSTOM_COMMAND external/glfw/src/all
-  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw/src" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+  COMMAND = cd "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw/src" && "/Users/fangwenyu/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/232.8660.186/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
   DESC = Installing the project stripped...
   pool = console
   restat = 1
@@ -580,21 +580,21 @@ build update_mappings: phony external/glfw/src/update_mappings
 # =============================================================================
 
 #############################################
-# Folder: /Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug
+# Folder: /Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release
 
 build all: phony libglad.a Snow_Simulation external/glfw/all
 
 # =============================================================================
 
 #############################################
-# Folder: /Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw
+# Folder: /Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw
 
 build external/glfw/all: phony external/glfw/src/all
 
 # =============================================================================
 
 #############################################
-# Folder: /Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug/external/glfw/src
+# Folder: /Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release/external/glfw/src
 
 build external/glfw/src/all: phony external/glfw/src/libglfw3.a
 

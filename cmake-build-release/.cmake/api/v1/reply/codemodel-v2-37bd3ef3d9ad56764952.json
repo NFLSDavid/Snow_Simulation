@@ -11,7 +11,7 @@
 						1
 					],
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"jsonFile" : "directory-.-Release-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.25"
@@ -31,7 +31,7 @@
 						2
 					],
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-external.glfw-Debug-061ec8001b4d638a3d7f.json",
+					"jsonFile" : "directory-external.glfw-Release-084eb738d8b693f47cbd.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.4"
@@ -47,7 +47,7 @@
 				{
 					"build" : "external/glfw/src",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-external.glfw.src-Debug-bef68817ccc5d7cb558e.json",
+					"jsonFile" : "directory-external.glfw.src-Release-bef68817ccc5d7cb558e.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.4"
@@ -62,7 +62,7 @@
 					]
 				}
 			],
-			"name" : "Debug",
+			"name" : "Release",
 			"projects" : 
 			[
 				{
@@ -102,35 +102,35 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Snow_Simulation::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Snow_Simulation-Debug-192370cfb40ea56121f6.json",
+					"jsonFile" : "target-Snow_Simulation-Release-6c978844326a5eed15be.json",
 					"name" : "Snow_Simulation",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "glad::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-glad-Debug-7907bed3b013a1a71aa3.json",
+					"jsonFile" : "target-glad-Release-2cedabb973f9dcbe160f.json",
 					"name" : "glad",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 2,
 					"id" : "glfw::@ca12bac854c2ac6b2230",
-					"jsonFile" : "target-glfw-Debug-be16b3749820846e2e85.json",
+					"jsonFile" : "target-glfw-Release-396ea7a4bc895230c3d4.json",
 					"name" : "glfw",
 					"projectIndex" : 1
 				},
 				{
 					"directoryIndex" : 1,
 					"id" : "uninstall::@691b517da5fa0f694cd4",
-					"jsonFile" : "target-uninstall-Debug-4252b13e9e035c875afd.json",
+					"jsonFile" : "target-uninstall-Release-79d2589ae53dc8523577.json",
 					"name" : "uninstall",
 					"projectIndex" : 1
 				},
 				{
 					"directoryIndex" : 2,
 					"id" : "update_mappings::@ca12bac854c2ac6b2230",
-					"jsonFile" : "target-update_mappings-Debug-e228708441c628bb24ea.json",
+					"jsonFile" : "target-update_mappings-Release-921f4b61afc31fc6ba57.json",
 					"name" : "update_mappings",
 					"projectIndex" : 1
 				}
@@ -140,7 +140,7 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-debug",
+		"build" : "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation/cmake-build-release",
 		"source" : "/Users/fangwenyu/Desktop/loo/Spring 2023/CS 488/Snow_Simulation"
 	},
 	"version" : 

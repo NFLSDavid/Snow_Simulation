@@ -9,34 +9,52 @@
 #include "Particle.h"
 #include "include/Relate_Math.h"
 #include <cmath>
+#include "include/plane.h"
+#include <glm/gtc/random.hpp>
+#include <set>
+#include <memory>
 
-const float alpha = 0.95f;
+const float alpha = 0.95;
+const float PI = 3.1415826;
+
 struct Node {
     glm::vec3 _pos;
-    glm::vec3 _velocity;
-    glm::vec3 _updated_velocity;
-    glm::vec3 _force;
+    glm::vec3 _velocity = glm::vec3 {0};
+    glm::vec3 _updated_velocity = glm::vec3 {0};
+    glm::vec3 _force = glm::vec3 {0};
     float _mass = 0;
-    std::vector<Particle *> _particles;
+    std::vector<std::shared_ptr<Particle>> _particles;
 };
 
 class Grid {
 public:
-    float _spacing = 1;
-    int _x = 0;
-    int _y = 0;
-    int _z = 0;
-    Relate_Math math_factory;
-    std::vector<std::vector<std::vector<Node *>>> _nodes;
-    Grid(int x, int y, int z, float h);
+    Grid(int x, int y, int z, float spacing);
+    void simulate(float xi, float delta_t, glm::vec3 gravity, float theta_c, float theta_s, Plane &plane, bool &first_round);
+    void createParticles(int particle_num, float radius);
     ~Grid();
-    void set_mass_and_velocities();
-    void volume_init();
-    void set_force(float xi);
-    void update_velocities(float delta_t, glm::vec3 gravity);
-    void update_deform_gradient(float theta_c, float theta_s, float delta_t);
-    void update_flip_and_pic();
+
+    bool _first_loop = true;
+    float _spacing = 1;
+    int _x_coord, _y_coord, _z_coord = 0;
+    float _x_physical, _y_physical, _z_physical = 0;
+    glm::vec3 _origin;
+    Relate_Math math_factory;
+    std::vector<std::vector<std::vector<std::unique_ptr<Node>>>> _nodes;
+    std::vector<std::shared_ptr<Particle>> _particles;
+
 private:
+    void set_mass_and_velocities(); // Objective 1;
+    void volume_init(); // Objective 2;
+    void set_force(float xi); // Objective 3;
+    void update_velocities(float delta_t, glm::vec3 gravity); // Objective 4;
+    void set_node_collision(float delta_t, Plane &plane); // Objective 5;
+    void update_deform_gradient(float theta_c, float theta_s, float delta_t); // Objective 6;
+    void update_flip_and_pic(); // Objective 7;
+    void set_particle_collision(float delta_t, Plane &plane); // Objective 5 #2;
+    void update_particle_pos(float delta_t); // Objective 8;
+    void reset();
+
+    // helpers:
     std::pair<int, int> get_bound(float x, int y) const;
 };
 
