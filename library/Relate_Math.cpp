@@ -6,27 +6,40 @@
 #include <iostream>
 
 float Relate_Math::N_x(float x) {
-    float abs_x = fabs(x);
+    // float abs_x = fabs(x);
+    if (x >= 2 || x <= -2) {
+        return 0;
+    } else if (x <= -1) {
+        return (1.f / 6.f) * x * x * x + x * x + 2.f * x + 4.f / 3.f;
+    } else if (x < 0) {
+        return -0.5f * x * x * x - x * x + 2.f / 3.f;
+    } else if (x < 1) {
+        return 0.5f * x * x * x - x * x + 2.f / 3.f;
+    } else {
+        return -(1.f / 6.f) * x * x * x + x * x - 2.f * x + 4.f / 3.f;
+    }
+    /*
     if (abs_x < 1) {
-        float ans = 0.5f * abs_x * abs_x * abs_x - x * x + 2.f / 3.f;
-        // std::cerr << x << " " << (2 / 3) - x * x << " " << ans << std::endl;
-        return ans;
-        //return 0.5f * abs_x * abs_x * abs_x - x * x + 2 / 3;
+        return 0.5f * abs_x * abs_x * abs_x - x * x + 2.f / 3.f;
     } else if (abs_x < 2) {
-        return -1.f / 6.f * abs_x * abs_x * abs_x + x * x - 2.f * abs_x + 4.f / 3.f;
+        return -(1.f / 6.f) * abs_x * abs_x * abs_x + x * x - 2.f * abs_x + 4.f / 3.f;
     } else {
          return 0;
     }
+     */
 }
 
 float Relate_Math::N_x_derivative(float x) {
-    float abs_x = fabs(x);
-    if (abs_x < 1) {
-        return 1.5f * abs_x * abs_x - 2 * x;
-    } else if (abs_x < 2) {
-        return - 0.5f * x * x + 2 * abs_x - 2;
-    } else {
+    if (x >= 2 || x <= -2) {
         return 0;
+    } else if (x <= -1) {
+        return 0.5f * x * x + 2.f * x + 2.f;
+    } else if (x < 0) {
+        return -1.5f * x * x - 2.f * x;
+    } else if (x < 1) {
+        return 1.5f * x * x - 2.f * x;
+    } else {
+        return -0.5f * x * x + 2.f * x - 2.f;
     }
 }
 
@@ -36,13 +49,18 @@ float Relate_Math::weight_func(glm::vec3 pos, glm::vec3 grid_index, float spacin
     float sy = N_x(scaled.y);
     float sz = N_x(scaled.z);
     float ans = sx * sy * sz;
+    /*
     if (ans < 0) {
-        // std::cerr << sx << ' ' << sy << ' ' << sz << ' ' << ans << std::endl;
-        // std::cerr << scaled.x << ' ' << scaled.y << ' ' << scaled.z << ' ' << std::endl;
-        // std::cerr << sx << ' ' << sy << ' ' << sz << ' ' << std::endl;
-        // std::cerr << std::endl;
+        std::cerr << "negative weight: " << ans << std::endl;
+        std::cerr << "sx: " << sx << " sy: " << sy << " sz: " << sz << std::endl;
+        std::cerr << "scaled: " << scaled.x << " " << scaled.y << " " << scaled.z << std::endl;
+        std::cerr << "N_x(scaled.x): " << N_x(scaled.x) << std::endl;
+        std::cerr << "N_x(scaled.y): " << N_x(scaled.y) << std::endl;
+        std::cerr << "N_x(scaled.z): " << N_x(scaled.z) << std::endl;
+        std::cerr << std::endl;
+        // std::cerr << (-1.f / 6.f) * 1.99318 * 1.99318 * 1.99318 + 1.99318 * 1.99318 - 2.f * 1.99318 + 4.f / 3.f << std::endl;
     }
-
+        */
     return ans;
     //return N_x(scaled.x) * N_x(scaled.y) * N_x(scaled.z);
 }

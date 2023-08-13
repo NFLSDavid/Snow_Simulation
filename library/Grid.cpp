@@ -10,9 +10,9 @@ Grid::Grid(int x, int y, int z, float spacing): _x_coord{x}, _y_coord{y}, _z_coo
     _z_physical = _spacing * _z_coord;
     _origin = glm::vec3(_x_physical / 2, _y_physical / 2, _z_physical / 2);
     for (int i = 0; i < _x_coord; ++i) {
-        _nodes.push_back(std::vector<std::vector<std::unique_ptr<Node>>>());
+        _nodes.emplace_back();
         for (int j = 0; j < _y_coord; ++j) {
-            _nodes.at(i).push_back(std::vector<std::unique_ptr<Node>>());
+            _nodes.at(i).emplace_back();
             for (int k = 0; k < _z_coord; ++k) {
                 _nodes.at(i).at(j).push_back(std::make_unique<Node>());
             }
