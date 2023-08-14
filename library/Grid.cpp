@@ -112,7 +112,6 @@ void Grid::volume_init() {
 
 // Objective 3: Calculate the Node forces:
 void Grid::set_force(float xi) {
-
     for (const auto &particle: _particles) {
         glm::mat3 sigma_p = math_factory.get_sigma(xi, particle);
         glm::mat3 tmp_no_weight = particle->_volume * sigma_p;
