@@ -222,10 +222,9 @@ int main() {
         glEnable(GL_BLEND);
 
         glEnable(GL_DEPTH_TEST);
-        bool first_time = true;
         for (int i = 0; i < simulation_steps; i++) {
             // Not sure about the order of these updates:
-            my_grid->simulate(XI, DELTA_T, vec3 {0, -9.81, 0}, THETA_C, THETA_S, *ground_rect, first_time);
+            my_grid->simulate(XI, DELTA_T, vec3 {0, -9.81, 0}, THETA_C, THETA_S, *ground_rect);
         }
         my_shader.use();
         glm::mat4 projection = glm::perspective(glm::radians(my_camera.Zoom), (float)GLOBAL_WIDTH / (float)GLOBAL_HEIGHT, 0.1f, 100.0f);
@@ -233,7 +232,7 @@ int main() {
         // camera/view transformation
         glm::mat4 view = my_camera.GetViewMatrix();
         my_shader.setMat4("view", view);
-        for (const auto particle : my_grid->_particles) {
+        for (const auto &particle : my_grid->_particles) {
             float len = cbrt(particle->_volume);
             glm::mat4 particle_model;
             particle_model = glm::scale(particle_model, glm::vec3(len, len, len));
@@ -248,6 +247,7 @@ int main() {
         glfwPollEvents();
         glfwSwapBuffers(window);
         frame_counter++;
+        std::cerr << "Iteration " << frame_counter << " " << std::endl;
     }
 
     glfwDestroyWindow(window);

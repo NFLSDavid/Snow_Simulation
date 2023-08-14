@@ -13,8 +13,8 @@ const float Poisson_Ratio = 0.2;
 
 class Relate_Math {
 private:
-    const float lambda_0 = Poisson_Ratio * Initial_Young_Modulus / ((1 + Poisson_Ratio) * (1 - 2 * Poisson_Ratio));
-    const float mu_0 = Initial_Young_Modulus / (2 * (1 + Poisson_Ratio));
+    const float _lambda_0 = Poisson_Ratio * Initial_Young_Modulus / ((1.f + Poisson_Ratio) * (1.f - 2.f * Poisson_Ratio));
+    const float _mu_0 = Initial_Young_Modulus / (2.f * (1.f + Poisson_Ratio));
 public:
     Relate_Math();
     static float N_x(float x);

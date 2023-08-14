@@ -112,6 +112,7 @@ void Grid::volume_init() {
 
 // Objective 3: Calculate the Node forces:
 void Grid::set_force(float xi) {
+
     for (const auto &particle: _particles) {
         glm::mat3 sigma_p = math_factory.get_sigma(xi, particle);
         glm::mat3 tmp_no_weight = particle->_volume * sigma_p;
@@ -120,7 +121,7 @@ void Grid::set_force(float xi) {
                 for (int k = particle->z_bound.first; k < particle->z_bound.second; ++k) {
                     glm::vec3 tmp_p{i, j, k};
                     glm::vec3 tmp_weight = Relate_Math::weight_func_gradient(particle->_pos, tmp_p, _spacing);
-                    _nodes.at(i).at(j).at(k)->_force -= tmp_weight * tmp_no_weight;
+                    _nodes.at(i).at(j).at(k)->_force -= tmp_no_weight * tmp_weight;
                 }
             }
         }
@@ -150,13 +151,14 @@ void Grid::set_force(float xi) {
 
 
 // Objective 4: Update the velocities:
-void Grid::update_velocities(float delta_t, glm::vec3 gravity) {
+void Grid::update_velocities(float delta_t) {
     for (int i = 0; i < _x_coord; ++i) {
         for (int j = 0; j < _y_coord; ++j) {
             for (int k = 0; k < _z_coord; ++k) {
+                _nodes.at(i).at(j).at(k)->_updated_velocity = _nodes.at(i).at(j).at(k)->_velocity;
                 if ( _nodes.at(i).at(j).at(k)->_mass > 0) {
                     _nodes.at(i).at(j).at(k)->_updated_velocity +=
-                            delta_t * (_nodes.at(i).at(j).at(k)->_force / _nodes.at(i).at(j).at(k)->_mass + gravity);
+                            delta_t * (_nodes.at(i).at(j).at(k)->_force / _nodes.at(i).at(j).at(k)->_mass);
                 }
             }
         }
@@ -177,7 +179,7 @@ void Grid::set_node_collision(float delta_t, Plane &plane) {
 // Objective 6: update the deform_gradient_P and deform_gradient_E
 void Grid::update_deform_gradient(float theta_c, float theta_s, float delta_t) {
     for (const auto &particle: _particles) {
-        glm::mat3 gradient_v_p_next = glm::mat3{0};
+        glm::mat3 gradient_v_p_next = glm::mat3{0.f};
         for (int i = particle->x_bound.first; i < particle->x_bound.second; ++ i) {
             for (int j = particle->y_bound.first; j < particle->y_bound.second; ++j) {
                 for (int k = particle->z_bound.first; k < particle->z_bound.second; ++k) {
@@ -187,11 +189,12 @@ void Grid::update_deform_gradient(float theta_c, float theta_s, float delta_t) {
                 }
             }
         }
-        glm::mat3 deform_gradient_E_p_hat_next = (glm::mat3{1} + delta_t * gradient_v_p_next) * particle->_deform_gradient_E;
+        glm::mat3 deform_gradient_E_p_hat_next = (glm::mat3{1.f} + delta_t * gradient_v_p_next) * particle->_deform_gradient_E;
         glm::mat3 U_p, V_p, Sigma_p;
         Relate_Math::get_svd(deform_gradient_E_p_hat_next, U_p, Sigma_p, V_p, theta_c, theta_s);
         particle->_deform_gradient_E = U_p * Sigma_p * glm::transpose(V_p);
-        particle->_deform_gradient_P = V_p * glm::inverse(Sigma_p) * glm::transpose(U_p) * deform_gradient_E_p_hat_next * particle->_deform_gradient_P;
+        glm::mat3 F_p_next = deform_gradient_E_p_hat_next * particle->_deform_gradient_P;
+        particle->_deform_gradient_P = V_p * glm::inverse(Sigma_p) * glm::transpose(U_p) * F_p_next;
     }
     /*
     for (int i = 0; i < _x_coord; ++i) {
@@ -227,18 +230,18 @@ void Grid::update_deform_gradient(float theta_c, float theta_s, float delta_t) {
 void Grid::update_flip_and_pic() {
     for (const auto &particle: _particles) {
         glm::vec3 v_next_flip = particle->_velocity;
-        glm::vec3 v_next_pic = glm::vec3 {0};
+        glm::vec3 v_next_pic = glm::vec3 {0.0};
         for (int i = particle->x_bound.first; i < particle->x_bound.second; ++ i) {
             for (int j = particle->y_bound.first; j < particle->y_bound.second; ++j) {
                 for (int k = particle->z_bound.first; k < particle->z_bound.second; ++k) {
                     glm::vec3 tmp_p{i, j, k};
-                    glm::vec3 tmp_weight = Relate_Math::weight_func_gradient(particle->_pos, tmp_p, _spacing);
+                    float tmp_weight = Relate_Math::weight_func(particle->_pos, tmp_p, _spacing);
                     v_next_pic += _nodes.at(i).at(j).at(k)->_updated_velocity * tmp_weight;
-                    v_next_flip += (_nodes.at(i).at(j).at(k)->_updated_velocity - _nodes.at(i).at(j).at(k)->_velocity)* tmp_weight;
+                    v_next_flip += (_nodes.at(i).at(j).at(k)->_updated_velocity - _nodes.at(i).at(j).at(k)->_velocity) * tmp_weight;
                 }
             }
         }
-        particle->_velocity = (1 - alpha) * v_next_pic + alpha * v_next_flip;
+        particle->_velocity = (1.f - alpha) * v_next_pic + alpha * v_next_flip;
     }
     /*
     for (int i = 0; i < _x_coord; ++i) {
@@ -353,18 +356,21 @@ void Grid::createParticles(int particle_num, float radius) {
 }
 
 void
-Grid::simulate(float xi, float delta_t, glm::vec3 gravity, float theta_c, float theta_s, Plane &plane, bool &first_round) {
+Grid::simulate(float xi, float delta_t, glm::vec3 gravity, float theta_c, float theta_s, Plane &plane) {
     reset();
     set_mass_and_velocities();
-    if (first_round) {
+    if (_first_loop) {
         volume_init();
-        first_round = false;
+        _first_loop = false;
     }
     set_force(xi);
-    update_velocities(delta_t, gravity);
+    update_velocities(delta_t);
     set_node_collision(delta_t, plane);
     update_deform_gradient(theta_c, theta_s, delta_t);
     update_flip_and_pic();
     set_particle_collision(delta_t, plane);
+    for (const auto &particle: _particles) {
+        particle->_velocity += gravity * delta_t;
+    }
     update_particle_pos(delta_t);
 }

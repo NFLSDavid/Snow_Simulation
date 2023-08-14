@@ -29,7 +29,7 @@ struct Node {
 class Grid {
 public:
     Grid(int x, int y, int z, float spacing);
-    void simulate(float xi, float delta_t, glm::vec3 gravity, float theta_c, float theta_s, Plane &plane, bool &first_round);
+    void simulate(float xi, float delta_t, glm::vec3 gravity, float theta_c, float theta_s, Plane &plane);
     void createParticles(int particle_num, float radius);
     ~Grid();
 
@@ -46,7 +46,7 @@ private:
     void set_mass_and_velocities(); // Objective 1;
     void volume_init(); // Objective 2;
     void set_force(float xi); // Objective 3;
-    void update_velocities(float delta_t, glm::vec3 gravity); // Objective 4;
+    void update_velocities(float delta_t); // Objective 4;
     void set_node_collision(float delta_t, Plane &plane); // Objective 5;
     void update_deform_gradient(float theta_c, float theta_s, float delta_t); // Objective 6;
     void update_flip_and_pic(); // Objective 7;

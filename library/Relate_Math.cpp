@@ -7,16 +7,16 @@
 
 float Relate_Math::N_x(float x) {
     // float abs_x = fabs(x);
-    if (x >= 2 || x <= -2) {
+    if (x >= 2.f || x <= -2.f) {
         return 0;
     } else if (x <= -1) {
-        return (1.f / 6.f) * x * x * x + x * x + 2.f * x + 4.f / 3.f;
+        return 0.1666667f * x * x * x + x * x + 2.f * x + 1.33333334f;
     } else if (x < 0) {
-        return -0.5f * x * x * x - x * x + 2.f / 3.f;
+        return -0.5f * x * x * x - x * x + 0.6666667f;
     } else if (x < 1) {
-        return 0.5f * x * x * x - x * x + 2.f / 3.f;
+        return 0.5f * x * x * x - x * x + 0.6666667f;
     } else {
-        return -(1.f / 6.f) * x * x * x + x * x - 2.f * x + 4.f / 3.f;
+        return -0.1666666f * x * x * x + x * x - 2.f * x + 1.33333334f;
     }
     /*
     if (abs_x < 1) {
@@ -30,7 +30,7 @@ float Relate_Math::N_x(float x) {
 }
 
 float Relate_Math::N_x_derivative(float x) {
-    if (x >= 2 || x <= -2) {
+    if (x >= 2.f || x <= -2.f) {
         return 0;
     } else if (x <= -1) {
         return 0.5f * x * x + 2.f * x + 2.f;
@@ -60,7 +60,8 @@ float Relate_Math::weight_func(glm::vec3 pos, glm::vec3 grid_index, float spacin
         std::cerr << std::endl;
         // std::cerr << (-1.f / 6.f) * 1.99318 * 1.99318 * 1.99318 + 1.99318 * 1.99318 - 2.f * 1.99318 + 4.f / 3.f << std::endl;
     }
-        */
+     */
+
     return ans;
     //return N_x(scaled.x) * N_x(scaled.y) * N_x(scaled.z);
 }
@@ -70,15 +71,16 @@ glm::vec3 Relate_Math::weight_func_gradient(glm::vec3 pos, glm::vec3 grid_index,
     float N_i_x = N_x_derivative(scaled.x) * N_x(scaled.y) * N_x(scaled.z);
     float N_i_y = N_x_derivative(scaled.y) * N_x(scaled.x) * N_x(scaled.z);
     float N_i_z = N_x_derivative(scaled.z) * N_x(scaled.y) * N_x(scaled.x);
+    // std::cerr << "dx: " << N_i_x << " dy: " << N_i_y << " dz: " << N_i_z << std::endl;
     return glm::vec3 {N_i_x, N_i_y, N_i_z};
 }
 
 float Relate_Math::get_mu(float xi, float J_P) const {
-    return mu_0 * exp(xi * (1 - J_P));
+    return _mu_0 * exp(xi * (1 - J_P));
 }
 
 float Relate_Math::get_lambda(float xi, float J_P) const {
-    return lambda_0 * exp(xi * (1 - J_P));
+    return _lambda_0 * exp(xi * (1 - J_P));
 }
 
 glm::mat3 Relate_Math::eigen_to_glm(const Eigen::Matrix3f &eigen_mat) {
