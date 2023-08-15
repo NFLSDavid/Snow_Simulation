@@ -49,14 +49,8 @@ int main() {
     model_to_world_mat = glm::translate(model_to_world_mat, -my_grid->_origin);
 
     // here we generate a random snow ball :
-    float radius = pow(3. * PARTICLE_NUM / (16 * PI), 1./3) * SPACING;
+    float radius = pow(3. * PARTICLE_NUM / (16 * PI), 1./3) * SPACING * 1.5;
     my_grid->createParticles(PARTICLE_NUM, radius);
-
-    /*
-    for (auto &particle: my_grid->_particles) {
-        std::cout << particle->_pos.x << " " << particle->_pos.y << " " << particle->_pos.z << std::endl;
-    }
-    */
 
     glm::vec4 pink(1.0f, 0.5f, 1.0f, 1.0f);
     // Make the ground plane
@@ -247,7 +241,6 @@ int main() {
         glfwPollEvents();
         glfwSwapBuffers(window);
         frame_counter++;
-        std::cerr << "Iteration " << frame_counter << " " << std::endl;
     }
 
     glfwDestroyWindow(window);
