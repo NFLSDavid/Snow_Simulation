@@ -9,6 +9,8 @@ build/
 bin/
 Debug/
 Release/
+cmake-build-debug
+cmake-build-release
 
 # Ignore IDE-specific files
 .vs/

@@ -6,7 +6,8 @@
 #define SNOW_SIMULATION_RELATE_MATH_H
 #include "external/glm/glm/glm.hpp"
 #include "include/Particle.h"
-#include "external/eigen/3.4.0_1/include/eigen3/Eigen/SVD"
+#include <Eigen/SVD>
+#include <memory>
 
 const float Initial_Young_Modulus = 140000;
 const float Poisson_Ratio = 0.2;
