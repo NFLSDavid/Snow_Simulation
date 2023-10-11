@@ -22,12 +22,14 @@ const float MU = 0.2;
 using namespace glm;
 
 int main() {
+    // glfw basic init;
     glfwInit();
     glfwSetTime(0);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
+    // Create basic window with glfw
     GLFWwindow *window = glfwCreateWindow(GLOBAL_WIDTH, GLOBAL_HEIGHT, "Snow Simulation", nullptr, nullptr);
     if (!window) {
         std::cout << "Failed to load the window";
@@ -40,6 +42,7 @@ int main() {
         return -1;
     }
 
+    // initialize
     std::unique_ptr<Grid> my_grid = std::make_unique<Grid>(GRID_WIDTH, GRID_WIDTH, GRID_WIDTH, SPACING);
     Camera my_camera {glm::vec3 {0, 0, 7.0}};
     Shader my_shader {"../include/shaders/camera.vert", "../include/shaders/simple.frag"};

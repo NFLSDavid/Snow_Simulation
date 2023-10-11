@@ -1,0 +1,29 @@
+{
+    "cmake.generator": "MinGW Makefiles",
+    "cmake.configureSettings": {
+        "CMAKE_BUILD_TYPE": "Debug",
+    },
+
+    "cmake.buildDirectory": "${workspaceFolder}/build/debug",
+
+    "files.associations": {
+        "*.cpp": "cpp",
+        "iosfwd": "cpp",
+        "fstream": "cpp"
+    },
+
+    "configurations": [
+        {
+            "name": "Debug",
+            "generator": "MinGW Makefiles",
+            "configuration": "Debug",
+            "buildRoot": "${workspaceFolder}/build/debug"
+        },
+        {
+            "name": "Release",
+            "generator": "MinGW Makefiles",
+            "configuration": "Release",
+            "buildRoot": "${workspaceFolder}/build/release",
+        }
+    ]
+}
